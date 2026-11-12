@@ -6,7 +6,7 @@
 
 ## Abstract
 
-A Gemma 4 coding agent spends most of its time generating tokens. Gemma 4 ships a multi-token-prediction (MTP) drafter with every model, and prompt lookup can draft tokens by copying from the prompt. We asked whether those two drafters make the same prompts faster without changing the text, on a 24 GB MacBook. A follow-up put every E4B block on the GPU and launched the undrafted server twice on the same 24 repair prompts. The second launch matched every token and was 1.10 times the first, because the first block was cold, so the fair comparison is against that second launch. MTP plus prompt lookup then decoded at 3.60 times that rate (95 percent interval 3.09 to 4.32), and the full text matched on every prompt. MTP alone was 3.07 times faster (interval 2.73 to 3.52), also identical on every prompt. Against the colder first launch those ratios are 3.97 and 3.38. Counting prompt processing as well as decode, the MTP ratio is 2.59.
+A Gemma 4 coding agent spends most of its time generating tokens. Gemma 4 ships a multi-token-prediction (MTP) drafter with every model, and prompt lookup can draft tokens by copying from the prompt. We asked whether those two drafters make the same prompts faster without changing the text, on a 24 GB MacBook. A follow-up put every E4B block on the GPU and launched the undrafted server twice on the same 24 repair prompts. The second launch matched every token and was 1.10 times the first, because the first block was cold, so the fair comparison is against that second launch. MTP plus prompt lookup then decoded at 3.60 times that rate (95 percent interval 3.09 to 4.32), and the full text matched on every prompt. MTP alone was 3.07 times faster (interval 2.73 to 3.52), also identical on every prompt. Where the text matches, the proposed patch matches: a repair the undrafted model would make, the drafted model makes too, and the drafter cannot change that outcome. Against the colder first launch those ratios are 3.97 and 3.38. Counting prompt processing as well as decode, the MTP ratio is 2.59.
 
 ## 1. Introduction
 
@@ -69,7 +69,7 @@ On 12B edits, MTP disagreed with baseline on 4 of 24 prompts, n-gram on 1 of 32,
 
 ![Speedup by step type](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_by_kind.png)
 
-Recorded 12B agent steps did not stay on the same trajectory. Prompt lookup matched 60.0% of 30 steps, and MTP matched 40.0%. The share of MTP pairs whose whole trajectory was identical is 0.0%. A faster decode that takes a different branch is not an agent speedup. The E4B result above is a single-turn repair prompt, not a live agent.
+On replayed 12B agent steps, with 19 of 48 blocks on the GPU, prompt lookup matched 60.0% of 30 steps and MTP matched 40.0%. No MTP trajectory stayed identical. Those steps were capped at 8, mostly search and read, and none called submit. A different next step is not an agent speedup. We did not replay the agent with every block on the GPU, so this is a limit of that recording, not a full-GPU E4B result.
 
 ### 3.3 Sampling
 
@@ -83,7 +83,15 @@ If the full-GPU MTP decode ratio of 3.381 let an agent attempt more repairs in t
 
 The pre-registered 12B comparison did not clear the lossless bar. No 12B drafter was lossless, and the 12B speed ratios are not distinguishable from launch-to-launch noise. A repeated baseline that moves by 1.46 times is a finding about laptop timing, not a drafter result: two launches can agree on every token and still disagree on speed by more than the pre-registered 5 percent band. The full-GPU E4B speedup is larger than that band, and the text matched, but the first baseline block was cold, so the fair comparison is the one against the second launch. 18.7% of raw rows stopped because they hit the length limit. Prompts use pull-request commit messages, not the competition issue text. The 12B test run and the agent replay both stopped on the clock. The capped runs used 40 percent of the blocks. The full-GPU follow-up did not, and the machine still held swap from the earlier runs. We did not measure the wall clock of a full repair.
 
-## 5. Related work
+## 5. Use it today
+
+The full-GPU E4B server that produced the identical text used llama.cpp `llama-server` with the shipped MTP file and prompt lookup:
+
+`-md mtp-gemma-4-E4B-it-Q4_0.gguf -ngld 999 --spec-type ngram-map-k4v,draft-mtp --spec-draft-n-max 4`
+
+No agent code changes. On this laptop that setting decoded the same 24 repair prompts 3.60 times faster than the repeated undrafted launch, which is under a third of the decode time. The 12B agent replay did not stay identical, so this switch is the one we measured, not a claim about every agent loop.
+
+## 6. Related work
 
 Leviathan, Kalman, and Matias, and Chen and coauthors, introduced speculative decoding as a draft-and-verify procedure that preserves the target distribution when the acceptance rule is exact. EAGLE and later heads, including Gemma 4's MTP head, put a small transformer on the target's hidden states. The Gemma 4 technical report (arXiv 2607.02770, section 2.6) specifies the 4-layer head and, for E2B and E4B, a clustered vocabulary projection. Li, Chen, Hu, and Xia (arXiv 2604.26469) measured several speculative methods on generation, editing, and repair, and found the winner depends on the task. They did not measure this drafter, this server, or byte identity against a repeated baseline. SWE-bench (Jimenez et al., arXiv 2310.06770) is the issue-and-patch setup this competition descends from. The token-budget writeup cited above documents the same pressure from the agent side. This paper adds a laptop measurement of the drafters Google already ships.
 
