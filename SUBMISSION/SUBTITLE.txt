@@ -1,0 +1,1 @@
+On a 24 GB MacBook, Gemma 4 E4B's shipped drafter decoded repair prompts 3.1 times faster (95 percent interval 2.3 to 4.6) and matched the undrafted text on 91.7% of paired steps. A second 12B baseline launch was not a stable speed reference.

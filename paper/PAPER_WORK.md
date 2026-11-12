@@ -32,7 +32,7 @@ Decode speedup is the ratio of pooled tokens per second. The 95 percent interval
 
 ## 3. Results
 
-![Decode speedup with bootstrap intervals](figures/fig_speedup.png)
+![Decode speedup with bootstrap intervals](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_speedup.png)
 
 | Workload | Model | Config | Prompts | Identical | Speedup (95 percent interval) | Draft acceptance |
 |---|---|---|---|---|---|---|
@@ -60,7 +60,7 @@ On 12B edits, MTP disagreed with baseline on 4 of {{W1.12b.mtp.ALL.n_pairs}} pro
 
 ### 3.2 Agent steps
 
-![Speedup by step type](figures/fig_by_kind.png)
+![Speedup by step type](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_by_kind.png)
 
 Recorded steps are mostly navigation. Of the {{W2.12b.ngram.ALL.n_pairs}} steps that paired for prompt lookup, {{W2.12b.ngram.navigate.n_pairs}} are navigate, {{W2.12b.ngram.edit.n_pairs}} is an edit, and {{W2.12b.ngram.invalid.n_pairs}} are invalid tool calls. There is no submit step in the paired set. Navigate identity is {{W2.12b.ngram.navigate.identity_rate|pct}} for prompt lookup (speedup {{W2.12b.ngram.navigate.speedup|.2f}}) and {{W2.12b.mtp.navigate.identity_rate|pct}} for MTP (speedup {{W2.12b.mtp.navigate.speedup|.2f}}). The single edit step matched under none of the three drafters. Invalid replies were also never identical, and their speed ratios are large ({{W2.12b.mtp.invalid.speedup|.2f}} for MTP) because the token counts differ. Mean share of the baseline string that is thinking, on the MTP pairs, is {{W2.12b.mtp.ALL.mean_think_share|pct}}. The share of MTP pairs whose whole trajectory was identical is {{W2.12b.mtp.ALL.clusters_all_identical_rate|pct}}. Drafting did not preserve agent trajectories on this sample. A speedup on steps that then take a different branch is not an agent speedup. We report it only as a decode ratio on the recorded context.
 
@@ -103,3 +103,5 @@ C. E. Jimenez et al. SWE-bench: Can language models resolve real-world GitHub is
 yosh95. Every Tool Call Is a Token You Cannot Buy Back. https://github.com/yosh95/g4-developer-agent-paper, read 12 Nov 2026.
 
 yuvrajtiwary-bitmesraece. gemma4-many-labs. https://github.com/yuvrajtiwary-bitmesraece/gemma4-many-labs, cloned 12 Nov 2026.
+
+Code, records, and figures: https://github.com/ojavadli/free-speed-gemma4. The CPU notebook is `notebook/free_speed_reproduce.ipynb` in that repository. Upload it to Kaggle by hand. The Kaggle CLI was not available on this machine.

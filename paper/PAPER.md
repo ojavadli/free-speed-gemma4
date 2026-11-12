@@ -32,7 +32,7 @@ Decode speedup is the ratio of pooled tokens per second. The 95 percent interval
 
 ## 3. Results
 
-![Decode speedup with bootstrap intervals](figures/fig_speedup.png)
+![Decode speedup with bootstrap intervals](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_speedup.png)
 
 | Workload | Model | Config | Prompts | Identical | Speedup (95 percent interval) | Draft acceptance |
 |---|---|---|---|---|---|---|
@@ -60,7 +60,7 @@ On 12B edits, MTP disagreed with baseline on 4 of 24 prompts, n-gram on 1 of 32,
 
 ### 3.2 Agent steps
 
-![Speedup by step type](figures/fig_by_kind.png)
+![Speedup by step type](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_by_kind.png)
 
 Recorded steps are mostly navigation. Of the 30 steps that paired for prompt lookup, 25 are navigate, 1 is an edit, and 4 are invalid tool calls. There is no submit step in the paired set. Navigate identity is 72.0% for prompt lookup (speedup 1.11) and 48.0% for MTP (speedup 1.54). The single edit step matched under none of the three drafters. Invalid replies were also never identical, and their speed ratios are large (4.40 for MTP) because the token counts differ. Mean share of the baseline string that is thinking, on the MTP pairs, is 87.0%. The share of MTP pairs whose whole trajectory was identical is 0.0%. Drafting did not preserve agent trajectories on this sample. A speedup on steps that then take a different branch is not an agent speedup. We report it only as a decode ratio on the recorded context.
 
@@ -103,3 +103,5 @@ C. E. Jimenez et al. SWE-bench: Can language models resolve real-world GitHub is
 yosh95. Every Tool Call Is a Token You Cannot Buy Back. https://github.com/yosh95/g4-developer-agent-paper, read 12 Nov 2026.
 
 yuvrajtiwary-bitmesraece. gemma4-many-labs. https://github.com/yuvrajtiwary-bitmesraece/gemma4-many-labs, cloned 12 Nov 2026.
+
+Code, records, and figures: https://github.com/ojavadli/free-speed-gemma4. The CPU notebook is `notebook/free_speed_reproduce.ipynb` in that repository. Upload it to Kaggle by hand. The Kaggle CLI was not available on this machine.

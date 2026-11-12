@@ -1,0 +1,5 @@
+Repo: https://github.com/ojavadli/free-speed-gemma4
+Notebook: upload notebook/free_speed_reproduce.ipynb by hand. The Kaggle CLI is not installed.
+Cover: https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/cover.png
+Speedup figure: https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_speedup.png
+Step-type figure: https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_by_kind.png
