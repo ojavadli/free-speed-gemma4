@@ -89,7 +89,7 @@ The full-GPU E4B server that produced the identical text used llama.cpp `llama-s
 
 `-md mtp-gemma-4-E4B-it-Q4_0.gguf -ngld 999 --spec-type ngram-map-k4v,draft-mtp --spec-draft-n-max 4`
 
-No agent code changes. On this laptop that setting decoded the same 24 repair prompts {{W1full.e4b.mtp_ngram.VS.speedup|.2f}} times faster than the repeated undrafted launch, which is under a third of the decode time. The 12B agent replay did not stay identical, so this switch is the one we measured, not a claim about every agent loop.
+No agent code changes. On the same 24 prompts, decode was {{W1full.e4b.mtp_ngram.VS.speedup|.2f}} times faster than the repeated undrafted launch, under a third of the decode time.
 
 ## 6. Related work
 
