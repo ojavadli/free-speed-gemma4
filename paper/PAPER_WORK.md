@@ -1,6 +1,6 @@
 # Free Speed: Same E4B Text, 3.9x Faster Decode on a Laptop
 
-### On a 24 GB MacBook, with every E4B block on the GPU, MTP plus prompt lookup decoded the same repair text {{W1full.e4b.mtp_ngram.ALL.speedup|.1f}} times faster (95 percent interval {{W1full.e4b.mtp_ngram.ALL.speedup_lo|.1f}} to {{W1full.e4b.mtp_ngram.ALL.speedup_hi|.1f}}). A second undrafted launch matched every token.
+### On a 24 GB MacBook, with every E4B block on the GPU, MTP plus prompt lookup decoded the same repair text {{W1full.e4b.mtp_ngram.ALL.speedup|.2f}} times faster (95 percent interval {{W1full.e4b.mtp_ngram.ALL.speedup_lo|.2f}} to {{W1full.e4b.mtp_ngram.ALL.speedup_hi|.2f}}). A second undrafted launch matched every token.
 
 **Anni Zimina, Orkhan Javadli**
 
