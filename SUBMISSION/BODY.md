@@ -37,8 +37,8 @@ Decode speedup is the ratio of pooled tokens per second. The 95 percent interval
 | W1 edit | E4B | mtp | 24 | 91.7% | 3.08 (2.26 to 4.56) | 91.9% |
 | W1 edit | E4B | ngram | 24 | 87.5% | 1.83 (1.31 to 2.70) | 74.3% |
 | W1 full GPU | E4B | baseline_rerun | 24 | 100.0% | 1.10 (1.01 to 1.21) | n/a |
-| W1 full GPU | E4B | mtp | 24 | 100.0% | 3.38 (2.91 to 3.96) | 92.3% |
-| W1 full GPU | E4B | mtp_ngram | 24 | 100.0% | 3.97 (3.30 to 4.90) | 82.1% |
+| W1 full GPU | E4B | mtp | 24 | 100.0% | 3.07 (2.73 to 3.52) vs second launch; 3.38 vs first | 92.3% |
+| W1 full GPU | E4B | mtp_ngram | 24 | 100.0% | 3.60 (3.09 to 4.32) vs second launch; 3.97 vs first | 82.1% |
 | W1 edit | E4B | mtp_ngram | 24 | 87.5% | 2.34 (1.68 to 3.55) | 81.7% |
 | W2 agent | 12B | mtp | 30 | 40.0% | 2.50 (1.30 to 3.15) | 60.0% |
 | W2 agent | 12B | ngram | 30 | 60.0% | 1.90 (0.97 to 2.70) | 36.3% |
