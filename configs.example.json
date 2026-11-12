@@ -1,0 +1,26 @@
+{
+  "llama_server": "llama-server",
+  "port": 8089,
+  "targets": {
+    "12b": {
+      "base_args": ["-m", "models/TARGET_12B.gguf", "-ngl", "999", "-c", "24576", "-fa", "on", "--parallel", "1", "--jinja"],
+      "configs": {
+        "baseline":       {"server_args": ["--spec-type", "none"]},
+        "baseline_rerun": {"server_args": ["--spec-type", "none"]},
+        "mtp":            {"server_args": ["-md", "models/MTP_12B.gguf", "-ngld", "999", "--spec-type", "draft-mtp", "--spec-draft-n-max", "2"]},
+        "ngram":          {"server_args": ["--spec-type", "ngram-mod"]},
+        "mtp_ngram":      {"server_args": ["-md", "models/MTP_12B.gguf", "-ngld", "999", "--spec-type", "ngram-mod,draft-mtp", "--spec-draft-n-max", "2"]},
+        "e2b_draft":      {"server_args": ["-md", "models/TARGET_E2B.gguf", "-ngld", "999", "--spec-type", "draft-simple", "--spec-draft-n-max", "8"]}
+      }
+    },
+    "e4b": {
+      "base_args": ["-m", "models/TARGET_E4B.gguf", "-ngl", "999", "-c", "24576", "-fa", "on", "--parallel", "1", "--jinja"],
+      "configs": {
+        "baseline":  {"server_args": ["--spec-type", "none"]},
+        "mtp":       {"server_args": ["-md", "models/MTP_E4B.gguf", "-ngld", "999", "--spec-type", "draft-mtp", "--spec-draft-n-max", "2"]},
+        "ngram":     {"server_args": ["--spec-type", "ngram-mod"]},
+        "mtp_ngram": {"server_args": ["-md", "models/MTP_E4B.gguf", "-ngld", "999", "--spec-type", "ngram-mod,draft-mtp", "--spec-draft-n-max", "2"]}
+      }
+    }
+  }
+}

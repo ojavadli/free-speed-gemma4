@@ -1,0 +1,16 @@
+{
+  "cpu": "Apple M4 Pro",
+  "memsize_bytes": 25769803776,
+  "memsize_gb": 24.0,
+  "macos": "15.5",
+  "display": "Chipset Model: Apple M4 Pro\n      Total Number of Cores: 20",
+  "power": "Now drawing from 'AC Power'",
+  "lowpowermode": "",
+  "disk": "/dev/disk3s5       926  843        51    95% 5973216 542948040    1%   /System/Volumes/Data",
+  "disk_avail_gb": 51,
+  "on_battery": false,
+  "ac_power": true,
+  "llama_server": "/opt/homebrew/bin/llama-server",
+  "llama_version": "version: 0.9.0 (build 12110, commit cd959bae9)\nbuilt with AppleClang 17.0.0.17000604 for Darwin arm64",
+  "spec_type_line": "none,draft-simple,draft-eagle3,draft-mtp,draft-dflash,draft-dspark,ngram-simple,ngram-map-k,ngram-map-k4v,ngram-mod,ngram-cache"
+}

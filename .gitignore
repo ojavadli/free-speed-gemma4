@@ -1,0 +1,16 @@
+models/
+repos/
+work/
+cache/
+workloads/
+results/raw/
+results/tune/
+results/smoke/
+data/
+_selftest/
+logs/
+ext/
+*.gguf
+tasks.jsonl
+__pycache__/
+.venv/
