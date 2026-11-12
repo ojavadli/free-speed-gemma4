@@ -1,0 +1,53 @@
+{
+  "llama_server": "/opt/homebrew/bin/llama-server",
+  "port": 8089,
+  "targets": {
+    "e4b": {
+      "base_args": [
+        "-m",
+        "models/e4b-target/gemma-4-E4B_q4_0-it.gguf",
+        "-ngl",
+        "999",
+        "-c",
+        "8192",
+        "-fa",
+        "on",
+        "--parallel",
+        "1",
+        "--jinja"
+      ],
+      "configs": {
+        "baseline": {
+          "server_args": ["--spec-type", "none"]
+        },
+        "baseline_rerun": {
+          "server_args": ["--spec-type", "none"]
+        },
+        "mtp": {
+          "server_args": [
+            "-md",
+            "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "4"
+          ]
+        },
+        "mtp_ngram": {
+          "server_args": [
+            "-md",
+            "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "ngram-map-k4v,draft-mtp",
+            "--spec-draft-n-max",
+            "4"
+          ]
+        }
+      }
+    }
+  }
+}

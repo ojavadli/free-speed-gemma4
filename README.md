@@ -2,11 +2,11 @@
 
 A laptop measurement of Gemma 4's shipped multi-token-prediction drafter and of prompt-lookup drafting, inside coding-agent prompts.
 
-On this machine (Apple M4 Pro, 24 GB, 19 of 48 blocks on the GPU, context 8192):
+On this machine (Apple M4 Pro, 24 GB, context 8192):
 
-- E4B with the MTP drafter decoded paired repair prompts 3.08 times faster than the undrafted server (95 percent interval 2.26 to 4.56) and matched the text on 91.7 percent of 24 prompts.
-- 12B prompt lookup matched on 96.9 percent of 32 prompts. The speed ratio was 1.24, and the interval includes 1.
-- A second launch of undrafted 12B matched every token and still changed speed by 1.46 times (interval 0.92 to 2.52). That is outside the pre-registered noise band of 0.95 to 1.05.
+- Full GPU, every E4B block: MTP plus prompt lookup decoded the same repair text 3.97 times faster than the first undrafted launch (95 percent interval 3.30 to 4.90) on 24 of 24 prompts. MTP alone was 3.38 times faster (interval 2.91 to 3.96), also identical on all 24.
+- A second undrafted E4B launch matched every token and was 1.10 times the first (interval 1.01 to 1.21), because the first block was cold. Against that second launch, MTP was 3.07 times faster (interval 2.73 to 3.52).
+- The capped 12B runs did not clear the same bar. A second undrafted 12B launch changed speed by 1.46 times with identical text.
 
 ## Rerun
 
