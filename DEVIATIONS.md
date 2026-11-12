@@ -1,0 +1,4 @@
+# Deviations
+
+- 04:48 Pacific. OJ asked that the GPU stay at or under 40 percent so the machine is not loud, and that the handoff be done by 13:00 Pacific. The full-GPU tuning run (`-ngl 999`) was stopped. Those rows were deleted from `results/tune/12b.jsonl` because they cannot be compared with a quieter run. Gemma 4 12B has 48 blocks, so `-ngl` is 19. E4B has 42 blocks, so `-ngl` is 17. Drafter GPU layers (`-ngld`) are 1. Every timed run after this line uses that cap. Smoke numbers from 04:37 were full GPU and are not used in the paper.
+- 05:00 Pacific. With context 24576 the machine was using about 16 GB of swap and one prompt fell to 0.7 tokens per second. That partial tuning file was deleted. Context is now 8192, which is the out-of-memory fallback in the master prompt. Tuning was started again from an empty file.

@@ -17,16 +17,16 @@ Clock at start: 04:15. Gates are not shifted. G1 is 05:45.
 - [x] B3 drafter fallback not needed. Official Google QAT repos had no MTP GGUF, so Unsloth QAT Q4_0 MTP files were used (same quantization family).
 - [x] B4 configs.json (04:34) paths set. Flag names match the help text.
 - [x] C1 smoke 12B (04:37) 12/12 ok. Baseline about 29 tok/s. MTP about 48 to 54 tok/s with draft counts in timings. Stack starts with --spec-type ngram-mod,draft-mtp and also reports draft counts. ngram-mod did not print draft acceptance in timings or the server log on these three short prompts, and its speed matched baseline.
-- [ ] C2 fix failing configs
-- [ ] C3 smoke E4B
-- [ ] C4 thinking probe
-- [ ] C5 req_sampling.json
-- [ ] C6 commit G1
+- [x] C2 fix failing configs (04:37) stacking with ngram-mod,draft-mtp starts. No flag fix needed.
+- [x] C3 smoke E4B (04:38) 12/12 ok. Baseline about 62 tok/s. MTP about 88 to 106 tok/s on the 200-token prompts.
+- [x] C4 thinking probe (04:39) ON is chat_template_kwargs enable_thinking true. OFF is enable_thinking false. Default empty request thinks.
+- [x] C5 req_sampling.json (04:39)
+- [x] C6 commit G1 (04:39) smoke passed well before 05:45.
 - [x] D1 tasks.jsonl (04:34) not found. kaggle CLI is not installed. Used the git fallback.
 - [x] D2 build W1 (04:34) 127 rows, 11 tune, 116 test. Skipped httpx_3672 (merge-base failed). First 48 test rows: fastapi 22, rich 20, requests 6. Prompts contain an issue and a code excerpt. Source: public git history.
 - [x] D3 W2 task ids (04:34) env/w2_tasks.txt: fastapi_15745,fastapi_14791,rich_2725,rich_3064,requests_6757,requests_7315,fastapi_15763,fastapi_14786
-- [ ] E1 tuning configs
-- [ ] E2 tune run
+- [x] E1 tuning configs (04:39) ngram_simple, ngram_mod, ngram_k4v, mtp_n2, mtp_n3, mtp_n4 added for 12B.
+- [ ] E2 tune run (04:48 restarted) full-GPU partial run discarded. GPU cap: 12B -ngl 19 of 48, E4B -ngl 17 of 42, drafter -ngld 1. Baseline under the cap is about 15 to 17 tok/s. Deadline 06:15.
 - [ ] E3 pick winners
 - [ ] E4 freeze plan G2
 - [ ] F1 W1 12B

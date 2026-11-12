@@ -7,9 +7,9 @@
         "-m",
         "models/12b-target/gemma-4-12b-it-qat-q4_0.gguf",
         "-ngl",
-        "999",
+        "19",
         "-c",
-        "24576",
+        "8192",
         "-fa",
         "on",
         "--parallel",
@@ -34,17 +34,17 @@
             "-md",
             "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-mtp",
             "--spec-draft-n-max",
-            "2"
+            "4"
           ]
         },
         "ngram": {
           "server_args": [
             "--spec-type",
-            "ngram-mod"
+            "ngram-map-k4v"
           ]
         },
         "mtp_ngram": {
@@ -52,11 +52,11 @@
             "-md",
             "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
-            "ngram-mod,draft-mtp",
+            "ngram-map-k4v,draft-mtp",
             "--spec-draft-n-max",
-            "2"
+            "4"
           ]
         },
         "e2b_draft": {
@@ -64,7 +64,7 @@
             "-md",
             "models/TARGET_E2B.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-simple",
             "--spec-draft-n-max",
@@ -94,7 +94,7 @@
             "-md",
             "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-mtp",
             "--spec-draft-n-max",
@@ -106,7 +106,7 @@
             "-md",
             "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-mtp",
             "--spec-draft-n-max",
@@ -118,7 +118,7 @@
             "-md",
             "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-mtp",
             "--spec-draft-n-max",
@@ -132,9 +132,9 @@
         "-m",
         "models/e4b-target/gemma-4-E4B_q4_0-it.gguf",
         "-ngl",
-        "999",
+        "17",
         "-c",
-        "24576",
+        "8192",
         "-fa",
         "on",
         "--parallel",
@@ -153,17 +153,17 @@
             "-md",
             "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
             "draft-mtp",
             "--spec-draft-n-max",
-            "2"
+            "4"
           ]
         },
         "ngram": {
           "server_args": [
             "--spec-type",
-            "ngram-mod"
+            "ngram-map-k4v"
           ]
         },
         "mtp_ngram": {
@@ -171,11 +171,11 @@
             "-md",
             "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
             "-ngld",
-            "999",
+            "1",
             "--spec-type",
-            "ngram-mod,draft-mtp",
+            "ngram-map-k4v,draft-mtp",
             "--spec-draft-n-max",
-            "2"
+            "4"
           ]
         }
       }

@@ -38,6 +38,6 @@ rotates across blocks so heat and background load are spread evenly. A second ba
 - Projection of extra resolved tasks is labelled an upper bound (oracle choice among attempts) and is never the headline.
 
 ## 5. Frozen choices (fill before the test split)
-- FROZEN n-gram type and flags:
-- FROZEN MTP draft length (--spec-draft-n-max):
-- FROZEN llama.cpp build, model files and SHA-256:
+- FROZEN n-gram type and flags: ngram-map-k4v, default n-gram parameters. On the tuning split this was the only n-gram type with a 100 percent identity rate (11 of 11). ngram-simple was faster (speedup 2.03) but identical on 10 of 11, so it was not selected.
+- FROZEN MTP draft length (--spec-draft-n-max): 4. All three lengths were identical on 11 of 11. Length 4 had the highest speedup (2.05), ahead of length 2 (1.60) and length 3 (0.68).
+- FROZEN llama.cpp build, model files and SHA-256: llama-server 0.9.0, build 12110, commit cd959bae9. GPU cap: 12B -ngl 19 of 48 blocks, E4B -ngl 17 of 42, drafter -ngld 1, context 8192. TARGET_12B google/gemma-4-12B-it-qat-q4_0-gguf gemma-4-12b-it-qat-q4_0.gguf sha256 93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b. MTP_12B unsloth/gemma-4-12B-it-qat-GGUF MTP/mtp-gemma-4-12B-it-Q4_0.gguf sha256 fcb35dea42c71333db904cee11baac525c9ef872818ee3753f6cb156f3c6f4f6. TARGET_E4B google/gemma-4-E4B-it-qat-q4_0-gguf gemma-4-E4B_q4_0-it.gguf sha256 676c35070db6dbe52f93e9c864ee0fba4eddea94b9c875d9cb10daff453fbaee. MTP_E4B unsloth/gemma-4-E4B-it-qat-GGUF MTP/mtp-gemma-4-E4B-it-Q4_0.gguf sha256 423074e537504b4f9ec5eafed5c639fac82c96631626efccacdd3c4039b20605.
