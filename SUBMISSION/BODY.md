@@ -26,7 +26,7 @@ Decode speedup is the ratio of pooled tokens per second. The 95 percent interval
 
 ## 3. Results
 
-![Decode speedup with bootstrap intervals](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_speedup.png)
+![Decode speedup with 95 percent intervals](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_speedup.png?v=2)
 
 | Workload | Model | Config | Prompts | Identical | Speedup (95 percent interval) | Draft acceptance |
 |---|---|---|---|---|---|---|
@@ -61,7 +61,7 @@ On 12B edits, MTP disagreed with baseline on 4 of 24 prompts, n-gram on 1 of 32,
 
 ### 3.2 Agent steps
 
-![Speedup by step type](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_by_kind.png)
+![Same text, faster decode on E4B](https://github.com/ojavadli/free-speed-gemma4/raw/main/figures/fig_headline.png?v=2)
 
 On replayed 12B agent steps, with 19 of 48 blocks on the GPU, prompt lookup matched 60.0% of 30 steps and MTP matched 40.0%. No MTP trajectory stayed identical. Those steps were capped at 8, mostly search and read, and none called submit. A different next step is not an agent speedup. We did not replay the agent with every block on the GPU, so this is a limit of that recording, not a full-GPU E4B result.
 
