@@ -26,10 +26,10 @@ Clock at start: 04:15. Gates are not shifted. G1 is 05:45.
 - [x] D2 build W1 (04:34) 127 rows, 11 tune, 116 test. Skipped httpx_3672 (merge-base failed). First 48 test rows: fastapi 22, rich 20, requests 6. Prompts contain an issue and a code excerpt. Source: public git history.
 - [x] D3 W2 task ids (04:34) env/w2_tasks.txt: fastapi_15745,fastapi_14791,rich_2725,rich_3064,requests_6757,requests_7315,fastapi_15763,fastapi_14786
 - [x] E1 tuning configs (04:39) ngram_simple, ngram_mod, ngram_k4v, mtp_n2, mtp_n3, mtp_n4 added for 12B.
-- [ ] E2 tune run (04:48 restarted) full-GPU partial run discarded. GPU cap: 12B -ngl 19 of 48, E4B -ngl 17 of 42, drafter -ngld 1. Baseline under the cap is about 15 to 17 tok/s. Deadline 06:15.
-- [ ] E3 pick winners
-- [ ] E4 freeze plan G2
-- [ ] F1 W1 12B
+- [x] E2 tune run (05:53) 77/77 finished under the GPU cap and context 8192. Baseline about 15.2 tok/s on the tuning split.
+- [x] E3 pick winners (05:54) n-gram: ngram-map-k4v (only 100 percent identity, speedup 1.49). MTP draft length 4 (100 percent identity, speedup 2.05). ngram-simple was faster but identical on 10 of 11, so it was not selected.
+- [x] E4 freeze plan G2 (05:54) commit da9abcac0dd72cec7a62ab960590f265576d28cc. Before the 06:20 gate.
+- [x] F1 W1 12B (07:50) deadline reached cleanly. 147 rows kept in results/raw/W1_12b.jsonl. First-block sanity check at 06:28 paired and measured identity. Nothing was changed after seeing numbers.
 - [ ] F2 W2 record and replay
 - [ ] F3 W1 E4B
 - [ ] F4 W1s sampling

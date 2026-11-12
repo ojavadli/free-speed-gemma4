@@ -1,0 +1,11 @@
+{
+ "proj.31B.n_valid_tasks": 67,
+ "proj.31B.rate_at_measured_speedup_oracle": 0.49950870663996516,
+ "proj.31B.single_attempt_rate": 0.34467001851339757,
+ "proj.31B.two_attempt_oracle_rate": 0.4487787402299975,
+ "proj.E4B.n_valid_tasks": 67,
+ "proj.E4B.rate_at_measured_speedup_oracle": 0.20210301041518522,
+ "proj.E4B.single_attempt_rate": 0.12157999395429635,
+ "proj.E4B.two_attempt_oracle_rate": 0.16969654650982866,
+ "speedup_used": 3.078
+}

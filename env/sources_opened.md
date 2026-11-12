@@ -14,4 +14,12 @@ These notes are for the paper. Numbers in the paper still come only from claims.
 
 - Leviathan, Kalman, and Matias, "Fast Inference from Transformers via Speculative Decoding", ICML 2023. Not re-opened as a PDF this session. Do not invent page numbers. The Gemma report cites it as the speculative-decoding method. If a page is not opened, cite only through the Gemma report or drop the direct citation.
 
-- Chen et al., speculative sampling, 2023, and Li et al., EAGLE, 2024: named by the master prompt. Cite them only if a page is opened before the paper is filled. The 2026 empirical study cites both as the draft-and-verify line of work.
+- Chen et al., speculative sampling, 2023, and Li et al., EAGLE, 2024: named by the master prompt. The 2026 empirical study cites both as the draft-and-verify line of work. Do not add page numbers that were not opened.
+
+- SWE-bench, Jimenez, Yang, Wettig, Yao, Pei, Press, and Narasimhan, arXiv 2310.06770, opened 12 Nov 2026 at https://arxiv.org/abs/2310.06770. A model is given a GitHub issue and a repository snapshot and must produce a patch that passes the repository tests. The paper's evaluation found that even strong models solved only a small share of issues.
+
+- SWE-agent, Yang et al. 2024: not opened as its own page in this session. Do not cite it directly unless a page is opened before the paper is filled. The SWE-bench page names John Yang as an author of SWE-bench, which is a different paper.
+
+- yosh95/g4-developer-agent-paper, README opened 12 Nov 2026 at https://github.com/yosh95/g4-developer-agent-paper. Title: "Every Tool Call Is a Token You Cannot Buy Back". A Gemma 4 31B INT4 agent on a 4-core, 3.7 GB CPU host. The README says 81 percent of total time was spent on failing tasks, and identical tool-call chains burned budget (up to 34.6 percent of calls in one failing configuration).
+
+- "The Budget Is a Token Budget" and "Gemma 4: A 16384 Output Cap Refuses Long Prompts" were read as Kaggle notebooks on 9 Nov 2026 in this workspace, and the master prompt names them again on 12 Nov. Use only figures that are in the earlier notebook extracts already saved in the conversation notes: generation was 76.0 percent of wall clock in the four-trace 12B audit (dt = 0.78 + 0.058 times completion tokens), and model calls were 98.7 to 100 percent of agent time in the output-cap notebook. If those exact sentences are not re-opened today, describe them as participant reports already read for this project and do not add new numbers.
