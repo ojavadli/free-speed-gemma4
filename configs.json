@@ -1,0 +1,184 @@
+{
+  "llama_server": "/opt/homebrew/bin/llama-server",
+  "port": 8089,
+  "targets": {
+    "12b": {
+      "base_args": [
+        "-m",
+        "models/12b-target/gemma-4-12b-it-qat-q4_0.gguf",
+        "-ngl",
+        "999",
+        "-c",
+        "24576",
+        "-fa",
+        "on",
+        "--parallel",
+        "1",
+        "--jinja"
+      ],
+      "configs": {
+        "baseline": {
+          "server_args": [
+            "--spec-type",
+            "none"
+          ]
+        },
+        "baseline_rerun": {
+          "server_args": [
+            "--spec-type",
+            "none"
+          ]
+        },
+        "mtp": {
+          "server_args": [
+            "-md",
+            "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "2"
+          ]
+        },
+        "ngram": {
+          "server_args": [
+            "--spec-type",
+            "ngram-mod"
+          ]
+        },
+        "mtp_ngram": {
+          "server_args": [
+            "-md",
+            "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "ngram-mod,draft-mtp",
+            "--spec-draft-n-max",
+            "2"
+          ]
+        },
+        "e2b_draft": {
+          "server_args": [
+            "-md",
+            "models/TARGET_E2B.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-simple",
+            "--spec-draft-n-max",
+            "8"
+          ]
+        },
+        "ngram_simple": {
+          "server_args": [
+            "--spec-type",
+            "ngram-simple"
+          ]
+        },
+        "ngram_mod": {
+          "server_args": [
+            "--spec-type",
+            "ngram-mod"
+          ]
+        },
+        "ngram_k4v": {
+          "server_args": [
+            "--spec-type",
+            "ngram-map-k4v"
+          ]
+        },
+        "mtp_n2": {
+          "server_args": [
+            "-md",
+            "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "2"
+          ]
+        },
+        "mtp_n3": {
+          "server_args": [
+            "-md",
+            "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "3"
+          ]
+        },
+        "mtp_n4": {
+          "server_args": [
+            "-md",
+            "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "4"
+          ]
+        }
+      }
+    },
+    "e4b": {
+      "base_args": [
+        "-m",
+        "models/e4b-target/gemma-4-E4B_q4_0-it.gguf",
+        "-ngl",
+        "999",
+        "-c",
+        "24576",
+        "-fa",
+        "on",
+        "--parallel",
+        "1",
+        "--jinja"
+      ],
+      "configs": {
+        "baseline": {
+          "server_args": [
+            "--spec-type",
+            "none"
+          ]
+        },
+        "mtp": {
+          "server_args": [
+            "-md",
+            "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "draft-mtp",
+            "--spec-draft-n-max",
+            "2"
+          ]
+        },
+        "ngram": {
+          "server_args": [
+            "--spec-type",
+            "ngram-mod"
+          ]
+        },
+        "mtp_ngram": {
+          "server_args": [
+            "-md",
+            "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+            "-ngld",
+            "999",
+            "--spec-type",
+            "ngram-mod,draft-mtp",
+            "--spec-draft-n-max",
+            "2"
+          ]
+        }
+      }
+    }
+  }
+}

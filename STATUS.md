@@ -12,19 +12,19 @@ Clock at start: 04:15. Gates are not shifted. G1 is 05:45.
 - [x] A4 selftest (04:17) SELFTEST PASS, then _selftest removed. Mock numbers are not for the paper.
 - [x] A5 llama-server (04:18) /opt/homebrew/bin/llama-server 0.9.0 build 12110 commit cd959bae9. Help lists draft-mtp and ngram types.
 - [x] A6 flag mapping (04:18) see below
-- [ ] B1 find models
-- [ ] B2 download models
-- [ ] B3 drafter fallback if needed
-- [ ] B4 configs.json
-- [ ] C1 smoke 12B
+- [x] B1 find models (04:18) logs/find_12b.log and logs/find_e4b.log
+- [x] B2 download models (04:34) four GGUFs on disk. SHA-256 in env/models.json
+- [x] B3 drafter fallback not needed. Official Google QAT repos had no MTP GGUF, so Unsloth QAT Q4_0 MTP files were used (same quantization family).
+- [x] B4 configs.json (04:34) paths set. Flag names match the help text.
+- [x] C1 smoke 12B (04:37) 12/12 ok. Baseline about 29 tok/s. MTP about 48 to 54 tok/s with draft counts in timings. Stack starts with --spec-type ngram-mod,draft-mtp and also reports draft counts. ngram-mod did not print draft acceptance in timings or the server log on these three short prompts, and its speed matched baseline.
 - [ ] C2 fix failing configs
 - [ ] C3 smoke E4B
 - [ ] C4 thinking probe
 - [ ] C5 req_sampling.json
 - [ ] C6 commit G1
-- [ ] D1 tasks.jsonl
-- [ ] D2 build W1
-- [ ] D3 W2 task ids
+- [x] D1 tasks.jsonl (04:34) not found. kaggle CLI is not installed. Used the git fallback.
+- [x] D2 build W1 (04:34) 127 rows, 11 tune, 116 test. Skipped httpx_3672 (merge-base failed). First 48 test rows: fastapi 22, rich 20, requests 6. Prompts contain an issue and a code excerpt. Source: public git history.
+- [x] D3 W2 task ids (04:34) env/w2_tasks.txt: fastapi_15745,fastapi_14791,rich_2725,rich_3064,requests_6757,requests_7315,fastapi_15763,fastapi_14786
 - [ ] E1 tuning configs
 - [ ] E2 tune run
 - [ ] E3 pick winners

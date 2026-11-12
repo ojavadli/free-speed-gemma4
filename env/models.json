@@ -1,0 +1,28 @@
+{
+  "source_note": "No competition tasks.jsonl on disk and kaggle CLI is not installed. Workload W1 was built from public git history (task_dates.csv). Model files were chosen by the master-prompt order. The official Google QAT repos do not ship a separate MTP GGUF, so each drafter is the Q4_0 MTP file from the matching Unsloth QAT repo.",
+  "TARGET_12B": {
+    "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
+    "file": "gemma-4-12b-it-qat-q4_0.gguf",
+    "path": "models/12b-target/gemma-4-12b-it-qat-q4_0.gguf",
+    "bytes": 6980000000,
+    "sha256": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b"
+  },
+  "MTP_12B": {
+    "repo": "unsloth/gemma-4-12B-it-qat-GGUF",
+    "file": "MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+    "path": "models/12b-mtp/MTP/mtp-gemma-4-12B-it-Q4_0.gguf",
+    "sha256": "fcb35dea42c71333db904cee11baac525c9ef872818ee3753f6cb156f3c6f4f6"
+  },
+  "TARGET_E4B": {
+    "repo": "google/gemma-4-E4B-it-qat-q4_0-gguf",
+    "file": "gemma-4-E4B_q4_0-it.gguf",
+    "path": "models/e4b-target/gemma-4-E4B_q4_0-it.gguf",
+    "sha256": "676c35070db6dbe52f93e9c864ee0fba4eddea94b9c875d9cb10daff453fbaee"
+  },
+  "MTP_E4B": {
+    "repo": "unsloth/gemma-4-E4B-it-qat-GGUF",
+    "file": "MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+    "path": "models/e4b-mtp/MTP/mtp-gemma-4-E4B-it-Q4_0.gguf",
+    "sha256": "423074e537504b4f9ec5eafed5c639fac82c96631626efccacdd3c4039b20605"
+  }
+}
